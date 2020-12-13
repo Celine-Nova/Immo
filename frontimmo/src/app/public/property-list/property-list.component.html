@@ -1,0 +1,25 @@
+
+<div class="container mt-3">
+    <div class="row">
+      <div class="col-12">
+        <h1>
+            Biens
+        </h1>
+    </div>
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-12 col-sm-6 col-xl-3" *ngFor= "let property of properties">
+          <div class="card w-100 ">
+            <img class="card-img-top" src="{{property.picture}}" alt="">
+            <div class="card-body">
+              <h5 class="card-title">{{property.title}}</h5>
+              <h4 *ngFor= "let avantage of property.Avantages">les + : {{avantage.name}} </h4>
+              <h3 *ngFor= "let keyword of property.Keywords">{{keyword.name}}</h3>
+              
+              <p class="card-text"> Description : {{property.description}} </p>
+              <a  [routerLink]="['detail', property.id]" class="btn btn-primary">Voir le bien</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
