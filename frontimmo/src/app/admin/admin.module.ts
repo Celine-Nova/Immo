@@ -5,6 +5,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { TypeListComponent } from './type/type-list/type-list.component';
 import { TypeAddComponent } from './type/type-add/type-add.component';
 import { TypeEditComponent } from './type/type-edit/type-edit.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -15,10 +16,14 @@ import { TypeEditComponent } from './type/type-edit/type-edit.component';
     ], 
     imports: [
       CommonModule,
-    //   SharedModule,
-      AdminRoutingModule
+      AdminRoutingModule,
+      ReactiveFormsModule,
+      FormsModule,
     ],
-    exports: [],
+    exports: [
+      ReactiveFormsModule,
+      FormsModule,
+    ],
     providers: [DatePipe]
   })
   export class AdminModule { }

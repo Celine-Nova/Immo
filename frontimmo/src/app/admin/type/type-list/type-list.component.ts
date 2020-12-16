@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { from, Observable } from 'rxjs';
-import { TypeService } from 'src/app/shared/service/type.service'
+import { TypeService } from 'src/app/shared/service/type.service';
+import { Type } from 'src/app/shared/model/type';
 
 @Component({
   selector: 'app-type-list',
@@ -8,7 +9,7 @@ import { TypeService } from 'src/app/shared/service/type.service'
   styleUrls: ['./type-list.component.css']
 })
 export class TypeListComponent implements OnInit {
-  types$: Observable<any>;
+  types: Type[];
   constructor(private typeService: TypeService) { }
 
   ngOnInit(): void {
@@ -17,6 +18,6 @@ export class TypeListComponent implements OnInit {
 
   getTypes(){
     this.typeService.getTypes()
-    .subscribe(data => this.types$ = data);
+    .subscribe(data => this.types = data);
   }
 }

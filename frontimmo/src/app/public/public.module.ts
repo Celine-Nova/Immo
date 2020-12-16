@@ -5,9 +5,10 @@ import { DetailPropertyComponent } from './detail-property/detail-property.compo
 
 import { PublicRoutingModule } from './public-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
-import { NavComponent } from '../nav/nav.component';
+
+// import { RouterModule } from '@angular/router';
+// import { SharedModule } from '../shared/shared.module';
+
 
 
 @NgModule({
@@ -16,16 +17,13 @@ import { NavComponent } from '../nav/nav.component';
       DetailPropertyComponent
     ],
     imports: [
-      CommonModule,
       PublicRoutingModule,
-      HttpClientModule,
-      BrowserModule
+      CommonModule,
+  
     ],
     exports: [
-      CommonModule, 
-      BrowserModule,
-      RouterModule, 
-      ],
+      // CommonModule,
+    ],
   })
   export class PublicModule { }
   

@@ -7,31 +7,37 @@ import { NavComponent } from './nav/nav.component';
 
 import { RouterModule } from '@angular/router';
 import { PublicRoutingModule } from './public/public-routing.module';
-import { CommonModule } from '@angular/common';
+
 import { AppRoutingModule } from './app.routing.module';
+import { CommonModule } from '@angular/common';
 import { PublicModule } from './public/public.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     
+   
        
   ],
   imports: [
-    CommonModule,
     BrowserModule,
-    RouterModule,
     HttpClientModule,
     AppRoutingModule,
     PublicRoutingModule,
-    PublicModule
+    ReactiveFormsModule,
+    FormsModule
+   
+   
   ],
   exports: [
-    CommonModule, 
     BrowserModule,
     RouterModule, 
     NavComponent,
+    ReactiveFormsModule,
+    FormsModule
     ],
 
   providers: [],

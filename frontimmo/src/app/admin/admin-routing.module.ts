@@ -6,7 +6,7 @@ import {TypeAddComponent} from './type/type-add/type-add.component';
 import {TypeEditComponent} from './type/type-edit/type-edit.component';
 
 const adminRoutes: Routes = [
-    { path: 'type', component: TypeListComponent },
+    { path: 'types', component: TypeListComponent },
     { path: 'type/add', component: TypeAddComponent },
     { path: 'type/edit/:id', component: TypeEditComponent },
     // { path: 'category', component: AdminCategoryList },
