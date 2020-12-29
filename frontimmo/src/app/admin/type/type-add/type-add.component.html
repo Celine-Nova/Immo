@@ -1,12 +1,10 @@
-<p>type-add works!</p>
-<h1>Ajouter votre type de bien</h1>
-
+<div class="container">
 <div class="row">
     <div class="col-6">
-        <h1>Add Type</h1>
+        <h1>Ajoutez votre type de bien</h1>
     </div>
     <div class="col-6 text-right">
-        <button class="btn-primary" >Back</button>
+        <button class="btn-primary" [routerLink]="['/admin/types']" routerLinkActive="router-link-active" >Back</button>
     </div>
     <div class="col-12 text-center mb-4">
         <!-- je relie le formgroup à la variable déclarée dans le type component -->
@@ -18,7 +16,6 @@
                     <div class="col-12 col-sm-6">
                         <input type="text" name="name" formControlName="name" class="w-100"> <br>
                     </div>
-
                 </div>
                 <button type="submit" class="btn-primary mt-4">Submit</button>
             </form>

@@ -16,8 +16,8 @@
                 <td>{{ type.id }}</td>
                 <td>{{ type.name }}</td>
                 <td>
-                    <button class="btn btn-warning mr-2" >Edit</button>
-                    <button class="btn btn-danger" >Delete</button>
+                    <button class="btn btn-warning mr-2" [routerLink]="['/admin/type/edit', type.id]" >Edit</button>
+                    <button class="btn btn-danger" (click)="deleteType(type.id)" >Delete</button>
                 </td>
             </tr>
         </tbody>

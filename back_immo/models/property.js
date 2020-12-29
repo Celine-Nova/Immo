@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      //Je veux mettre un TypeId à Propeerty. Type appartient à Property
       Property.belongsTo(models.Type);
       // relation ManyToMany
       Property.belongsToMany(models.Avantage, {through: models.PropertyAvantage});

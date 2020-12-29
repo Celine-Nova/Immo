@@ -11,22 +11,23 @@ import { Type } from '../model/type';
 export class TypeService {
     constructor(private http: HttpClient, private errorService: ErrorService) {
     }
-    
-    getTypes(): Observable<Type[]>{
-      return this.http.get<any>('http://localhost:3000/types/')
-      .pipe(
-        tap(data => data),
-        catchError(this.errorService.handleError('getTypes', []))
-        );
-      } 
-    getType(id:number): Observable<Type>{
-    return this.http.get<any>('http://localhost:3000/types/' + id)
+  // je récupère les types avec l'url de l'api de la partie Nodejs
+  getTypes(): Observable<Type[]>{
+    return this.http.get<any>('http://localhost:3000/types/')
     .pipe(
       tap(data => data),
-      catchError(this.errorService.handleError('getType', []))
+      catchError(this.errorService.handleError('getTypes', []))
       );
-    }
-     // POST :  Add a Type
+    } 
+  // je récupère Un type grâce à son id
+  getType(id:number): Observable<Type>{
+  return this.http.get<any>('http://localhost:3000/types/' + id)
+  .pipe(
+    tap(data => data),
+    catchError(this.errorService.handleError('getType'))
+    );
+  }
+     // POST :  j'ajoute un type
   addType(type: Type): Observable<Type> {
     return this.http.post<Type>('http://localhost:3000/types/', type, {responseType: 'json'})
     .pipe(
@@ -35,23 +36,23 @@ export class TypeService {
       );
   }
 
-  // // PUT :  Edit a Type
-  // editType(type: Type, id: number): Observable<Type> {
-  //   return this.http.put<Type>('http://localhost:3000/types/edit' + id, type, {responseType: 'json'})
-  //   .pipe(
-  //     tap((data: Type) => console.log(data)),
-  //     catchError(this.errorService.handleError<Type>('deleteType'))
-  //     );
-  // }
+  // PUT :  je modifie un Type
+  editType(type: Type, id: number): Observable<Type> {
+    return this.http.put<Type>('http://localhost:3000/types/' + id, type, {responseType: 'json'})
+    .pipe(
+      tap((data: Type) => console.log(data)),
+      catchError(this.errorService.handleError<Type>('editType'))
+      );
+  }
 
   //     /** DELETE: delete one Type */
-  //     deleteCategory(id: string): Observable<Type> {
-  //       const url ='http://localhost:3000/types/delete' + id;
-  //       return this.http.delete<any>(url)
-  //         .pipe(
-  //           tap(data => data),
-  //           catchError(this.errorService.handleError('deleteType'))
-  //         );
-  //     }
+  deleteType(id: string): Observable<Type> {
+    const url ='http://localhost:3000/types/' + id;
+    return this.http.delete<any>(url)
+      .pipe(
+        tap(data => data),
+        catchError(this.errorService.handleError('deleteType'))
+      );
+  }
   }
   

@@ -20,4 +20,8 @@ export class TypeListComponent implements OnInit {
     this.typeService.getTypes()
     .subscribe(data => this.types = data);
   }
+  deleteType(id) {
+    this.typeService.deleteType(id).subscribe();
+    this.types = this.types.filter(element => element.id !== id);
+  }
 }
